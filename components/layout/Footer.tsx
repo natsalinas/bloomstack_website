@@ -1,38 +1,24 @@
-import { siteConfig } from "@/config/site";
+import Link from "next/link";
+import { Sprout } from "lucide-react";
+import { navigationLinks } from "@/config/navigation";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row lg:px-8">
-        <p className="text-sm text-muted-foreground">
-          © {currentYear} {siteConfig.legalName}
-        </p>
-
-        <div className="flex items-center gap-5">
-          {siteConfig.social.instagram && (
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Instagram
-            </a>
-          )}
-
-          {siteConfig.social.linkedin && (
-            <a
-              href={siteConfig.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              LinkedIn
-            </a>
-          )}
-        </div>
+    <footer className="border-t border-border bg-[#f0f2e9]">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-7 px-6 py-10 lg:px-8">
+        <Link href="/" className="inline-flex items-center gap-2 font-serif text-2xl text-primary">
+          <Sprout /> BloomStack
+        </Link>
+        <nav aria-label="Footer navigation" className="flex flex-wrap gap-6">
+          {navigationLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="text-sm hover:text-primary">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+      <div className="mx-auto max-w-7xl border-t border-border px-6 py-5 text-sm text-muted-foreground lg:px-8">
+        © {new Date().getFullYear()} BloomStack
       </div>
     </footer>
   );
