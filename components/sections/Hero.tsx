@@ -1,1 +1,34 @@
-import Link from "next/link";import {ArrowUpRight} from "lucide-react";export function Hero(){return <section className="bg-[#193d32] text-[#f6f4ec]"><div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8 lg:py-28"><div><p className="text-xs font-semibold tracking-[.28em] text-[#c6ae83]">WELCOME TO BLOOMSTACK</p><h1 className="mt-6 font-serif text-5xl leading-[1.1] text-[#f6f4ec] sm:text-7xl">Let's build something meaningful.</h1><p className="mt-7 max-w-xl text-lg leading-8 text-[#d9e5da]">A collaborative software team where people come together to learn, create, and grow.</p><div className="mt-9 flex flex-wrap gap-3"><Link href="/about" className="inline-flex items-center gap-2 rounded-full bg-[#c6ae83] px-7 py-3.5 font-semibold text-[#193d32] hover:bg-[#e2cba4]">Meet BloomStack <ArrowUpRight size={18}/></Link><Link href="/contact" className="rounded-full border border-white/50 px-7 py-3.5 font-semibold text-white hover:bg-white/10">Join a meeting</Link></div></div><div className="overflow-hidden rounded-[2rem] bg-[#e9eee5] shadow-2xl"><img src="https://images.unsplash.com/photo-1633789242668-886f4098ea1c?auto=format&fit=crop&w=1000&q=85" alt="A money tree plant with green leaves in a white pot" className="aspect-[4/5] w-full object-cover" /></div></div></section>}
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+
+export function Hero() {
+  return (
+    <section className="relative isolate flex min-h-[580px] items-center overflow-hidden bg-[#193d32] text-[#f6f4ec] sm:min-h-[650px]">
+      <img
+        src="/images/bloomstack-orchids.jpg"
+        alt="Blooming orchids and lush green plants growing along a wooden garden trellis"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#112a22]/95 via-[#193d32]/80 to-[#193d32]/25" />
+      <div className="mx-auto w-full max-w-7xl px-6 py-24 lg:px-8">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold tracking-[.28em] text-[#e6d2a7]">WELCOME TO BLOOMSTACK</p>
+          <h1 className="mt-6 font-serif text-5xl leading-[1.12] text-white sm:text-7xl">
+            Let&apos;s build something meaningful.
+          </h1>
+          <p className="mt-7 max-w-xl text-lg leading-8 text-[#f2f5ed]">
+            A collaborative software team where people come together to learn, create, and grow.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link href="/about" className="inline-flex items-center gap-2 rounded-full bg-[#c6ae83] px-7 py-3.5 font-semibold text-[#193d32] transition hover:bg-[#e2cba4]">
+              Meet BloomStack <ArrowUpRight size={18} />
+            </Link>
+            <Link href="/contact" className="rounded-full border border-white/70 px-7 py-3.5 font-semibold text-white transition hover:bg-white/15">
+              Join a meeting
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
